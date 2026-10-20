@@ -53,6 +53,15 @@ body.quiz-open .treeWrap{left:28%!important;bottom:16%!important;width:min(330px
   #quiz .question{font-size:13px!important;max-height:36px!important;min-height:30px!important}
   #quiz .feedback{max-height:45px!important;font-size:10px!important}
 }
+
+/* v5 mobile: remove unused lower space before feedback / next action */
+@media(max-width:760px){
+  #quiz .card{grid-template-rows:16px 22px auto auto auto auto!important;align-content:start!important}
+  #quiz .answers{min-height:0!important;overflow:auto!important}
+  #quiz .answers:has(.answer){padding-bottom:0!important}
+  #quiz > .card > div:last-child:has(#nextBtn.hidden){display:none!important}
+  #quiz .feedback:not(.show){display:none!important}
+}
 </style></head><body><div class="game"><header><div class="brand"><div class="logo">🌳</div><div><b>AI 安全成長樹</b><small>澆水養成挑戰</small></div></div><div class="hud"><div class="chip">⏱ <strong id="clock">00:00</strong></div><div class="chip">💧 <strong id="score">0/10</strong></div></div></header><main><div class="sun"></div><div class="cloud c1"></div><div class="cloud c2"></div><div class="hill h1"></div><div class="hill h2"></div><div class="progress"><div class="bar" id="bar"></div></div><div class="garden"><div class="plot"></div><div class="flowers"><span class="flower f1">🌼</span><span class="flower f2">🌷</span><span class="flower f3">🌻</span><span class="flower f4">🌸</span></div><div class="treeWrap"><div class="tree" id="tree"><div class="trunk" id="trunk"></div><div class="branch b1" id="b1"></div><div class="branch b2" id="b2"></div><div class="crown" id="crown"><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i><i class="leaf l6"></i><span class="fruit fr1">🍎</span><span class="fruit fr2">🍎</span><span class="fruit fr3">🍎</span></div></div></div><div class="growGlow" id="growGlow"></div><div class="watering" id="watering">🪣</div><div class="water" id="water">💧💧</div><div class="wind" id="wind">〰️💨〰️💨</div><div class="mascot">🐰</div></div></main><footer id="caption">每答對一題，就替樹苗澆一次水！</footer></div>
 <div class="overlay" id="start"><div class="card"><div class="eyebrow">AI SAFETY GARDEN</div><h1>種下你的 AI 安全成長樹</h1><div class="hero"></div><p>花園裡有一株小樹苗。答對題目就能澆水，讓樹苗長出枝葉與果實；答錯時會吹起大風，樹葉也會飄落。</p><p style="color:#738b6c">完成 10 題後，將依答對題數展示最終樹木，以及完成時間、評價與專屬稱號。</p><button class="primary" id="startBtn">開始澆水養樹</button></div></div>
 <div class="overlay hidden" id="quiz"><div class="card"><div class="eyebrow" id="qLabel"></div><h2>今天的 AI 安全養分</h2><div class="question" id="qText"></div><div class="answers" id="answers"></div><div class="feedback" id="feedback"></div><div style="margin-top:12px"><button class="primary hidden" id="nextBtn">下一題</button></div></div></div>
